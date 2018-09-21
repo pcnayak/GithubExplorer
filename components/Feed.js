@@ -29,9 +29,7 @@ export default class Feed extends Component {
 
     fetchFeed(){
         let authService= new AuthService();
-        console.log('authInfo.token.login'  + authInfo.token.login);
-        console.log('authInfo.usr'  + authInfo.user);
-
+      
         authService.GetAuthInfo((err, authInfo)=> {
             console.log(authInfo);
             var url = 'https://api.github.com/users/'

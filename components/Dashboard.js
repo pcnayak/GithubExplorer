@@ -21,7 +21,7 @@ export default class Dashboard extends Component {
     }
     render(){
         const username = this.props.navigation.getParam('username', 'None');
-   
+        
         return (
                  <TabBarIOS style={styles.container}>
                     <TabBarIOS.Item

@@ -25,7 +25,7 @@ export default class Login extends Component {
             isLoggedIn: false,
             token:''
         }
-
+        /*
         let authService= new AuthService();
 
         authService.GetAuthInfo((err, authInfo)=> {
@@ -42,12 +42,10 @@ export default class Login extends Component {
                 this.props.navigation.navigate('dashboard', {
                     username: authInfo.user,
                     token: authInfo.token,
-                });
-                
-            }
-            
-          
-        });
+                });                
+            }       
+        }); 
+        */
     }
     
      
@@ -57,7 +55,7 @@ export default class Login extends Component {
             return (
                 <View style={styles.container}  >     
                     <Image style={styles.logo} source={require('../images/Octocat.png')} />
-                    <Text style={styles.heading}>Github Browser!</Text>
+                    <Text style={styles.heading}>Github Browser!!</Text>
                     <TextInput 
                         onChangeText={(text)=> this.setState({username: text})}
                         style={styles.loginInput} 
@@ -103,9 +101,10 @@ export default class Login extends Component {
             })     
 
             if(results.success){
-                this.props.navigation.navigate(
-                    'dashboard'
-                );
+                console.log("calling dashboard")
+                this.props.navigation.navigate('dashboard', {
+                    username: this.state.username
+                });
             }
         });
 

@@ -61,6 +61,7 @@ export default class AuthService  {
             return response.json();
         })
         .then((results)=>{
+            
              AsyncStorage.multiSet([
                 [AuthToken, JSON.stringify(results)],
                 [UserId, encodedAuth]
@@ -71,8 +72,10 @@ export default class AuthService  {
                     }                 
                 }
                 return cb({success: true, errMsg : '', token: JSON.stringify(results)});
-            })
-          
+            }) 
+            
+            //return cb({success: true, errMsg : '', token: JSON.stringify(results)});
+
         })
         .catch((err)=> {
             return cb({success: false, errMsg : err.errMsg});
